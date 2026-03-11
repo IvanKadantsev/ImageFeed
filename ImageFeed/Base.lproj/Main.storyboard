@@ -29,8 +29,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="264"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="mUY-RP-nv9">
-                                                    <rect key="frame" x="16" y="4" width="382" height="216"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="mUY-RP-nv9">
+                                                    <rect key="frame" x="16" y="4" width="361" height="256"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="16"/>
@@ -38,35 +38,33 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-jT-a9l" userLabel="Date Label">
-                                                    <rect key="frame" x="24" y="238" width="152" height="18"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMC-6E-clW">
+                                                    <rect key="frame" x="333" y="4" width="44" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="rbJ-Jr-LNg"/>
-                                                        <constraint firstAttribute="width" constant="152" id="uVu-kA-Q4n"/>
+                                                        <constraint firstAttribute="width" constant="44" id="hRa-yG-BhY"/>
+                                                        <constraint firstAttribute="height" constant="44" id="tSh-b0-WEe"/>
                                                     </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="likeButtonOn"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-jT-a9l" userLabel="Date Label">
+                                                    <rect key="frame" x="24" y="246.33333333333334" width="361" height="21.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" name="YP White"/>
                                                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMC-6E-clW">
-                                                    <rect key="frame" x="333" y="4" width="44" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="tSh-b0-WEe"/>
-                                                        <constraint firstAttribute="width" constant="44" id="yy4-Jz-k6k"/>
-                                                    </constraints>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="Like Button" image="likeButtonOn"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="mUY-RP-nv9" secondAttribute="bottom" id="BzH-No-Xzn"/>
-                                                <constraint firstItem="mUY-RP-nv9" firstAttribute="leading" secondItem="urN-sE-PX0" secondAttribute="leading" constant="16" id="Qvx-0O-wvv"/>
-                                                <constraint firstAttribute="trailing" secondItem="mUY-RP-nv9" secondAttribute="trailing" constant="16" id="Sqv-hJ-M0t"/>
-                                                <constraint firstItem="mUY-RP-nv9" firstAttribute="trailing" secondItem="DMC-6E-clW" secondAttribute="trailing" id="StE-B4-8qK"/>
-                                                <constraint firstItem="mUY-RP-nv9" firstAttribute="top" secondItem="urN-sE-PX0" secondAttribute="top" constant="4" id="Uck-Y0-APZ"/>
-                                                <constraint firstItem="iy2-jT-a9l" firstAttribute="leading" secondItem="mUY-RP-nv9" secondAttribute="leading" constant="8" id="duO-EV-6mB"/>
-                                                <constraint firstItem="mUY-RP-nv9" firstAttribute="bottom" secondItem="iy2-jT-a9l" secondAttribute="bottom" constant="8" id="fJX-Ca-fip"/>
-                                                <constraint firstItem="DMC-6E-clW" firstAttribute="top" secondItem="mUY-RP-nv9" secondAttribute="top" id="y2s-d5-5Jr"/>
+                                                <constraint firstItem="DMC-6E-clW" firstAttribute="top" secondItem="mUY-RP-nv9" secondAttribute="top" id="7uP-RR-Wpi"/>
+                                                <constraint firstItem="iy2-jT-a9l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mUY-RP-nv9" secondAttribute="trailing" constant="8" id="Fn7-5S-zPH"/>
+                                                <constraint firstItem="mUY-RP-nv9" firstAttribute="top" secondItem="urN-sE-PX0" secondAttribute="top" constant="4" id="R6i-AZ-lpH"/>
+                                                <constraint firstAttribute="bottom" secondItem="mUY-RP-nv9" secondAttribute="bottom" constant="4" id="WJY-fS-E2s"/>
+                                                <constraint firstItem="DMC-6E-clW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="urN-sE-PX0" secondAttribute="leading" constant="20" symbolic="YES" id="YKa-1G-Eaw"/>
+                                                <constraint firstItem="mUY-RP-nv9" firstAttribute="leading" secondItem="urN-sE-PX0" secondAttribute="leading" constant="16" id="dRV-WO-W7D"/>
+                                                <constraint firstAttribute="trailing" secondItem="mUY-RP-nv9" secondAttribute="trailing" constant="16" id="hvQ-nN-37G"/>
+                                                <constraint firstItem="DMC-6E-clW" firstAttribute="trailing" secondItem="mUY-RP-nv9" secondAttribute="trailing" id="jhC-Lh-eYV"/>
+                                                <constraint firstItem="iy2-jT-a9l" firstAttribute="leading" secondItem="mUY-RP-nv9" secondAttribute="leading" constant="8" id="rou-v2-m0l"/>
+                                                <constraint firstItem="iy2-jT-a9l" firstAttribute="bottom" secondItem="mUY-RP-nv9" secondAttribute="bottom" constant="8" id="txB-5w-yWS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="YP Black"/>

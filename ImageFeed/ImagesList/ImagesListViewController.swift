@@ -1,7 +1,7 @@
 import UIKit
-// Добрый день. Проверил несоколько раз, приложение работает. Проверил констреинты
 final class ImagesListViewController: UIViewController {
 	
+	private let showSingleImageSugueIdentifier = "ShowSingleImage"
 	@IBOutlet private var tableView: UITableView!
 	
 	private let photosName: [String] = Array(0..<20).map{ "\($0)" }
@@ -17,6 +17,24 @@ final class ImagesListViewController: UIViewController {
 		super.viewDidLoad()
 		tableView.rowHeight = 200
 		tableView.contentInset = UIEdgeInsets(top:12, left: 0, bottom: 12, right: 0)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == showSingleImageSugueIdentifier { // 1
+			guard
+				let viewController = segue.destination as? SingleImageViewController, // 2
+				let indexPath = sender as? IndexPath // 3
+			else {
+				assertionFailure("Invalid segue destination") // 4
+				return
+			}
+
+			let image = UIImage(named: photosName[indexPath.row])
+			_ = viewController.view
+			viewController.singleImageView.image = image // 6
+		} else {
+			super.prepare(for: segue, sender: sender) // 7
+		}
 	}
 }
 
@@ -57,6 +75,7 @@ extension ImagesListViewController {
 extension ImagesListViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		performSegue(withIdentifier: showSingleImageSugueIdentifier, sender: indexPath)
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,3 +93,9 @@ extension ImagesListViewController: UITableViewDelegate {
 		return cellHeight
 		}
 }
+
+//extension ImagesListViewController: UITableViewDelegate {
+//	func tableVIEW(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//		
+//	}
+//}

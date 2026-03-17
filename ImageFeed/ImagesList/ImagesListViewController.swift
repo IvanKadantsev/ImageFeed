@@ -20,18 +20,18 @@ final class ImagesListViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == showSingleImageSugueIdentifier { // 1
+		if segue.identifier == showSingleImageSugueIdentifier {
 			guard
-				let viewController = segue.destination as? SingleImageViewController, // 2
-				let indexPath = sender as? IndexPath // 3
+				let viewController = segue.destination as? SingleImageViewController,
+				let indexPath = sender as? IndexPath
 			else {
-				assertionFailure("Invalid segue destination") // 4
+				assertionFailure("Invalid segue destination")
 				return
 			}
 
 			let image = UIImage(named: photosName[indexPath.row])
 			_ = viewController.view
-			viewController.singleImageView.image = image // 6
+			viewController.image = image // 6
 		} else {
 			super.prepare(for: segue, sender: sender) // 7
 		}
@@ -93,9 +93,3 @@ extension ImagesListViewController: UITableViewDelegate {
 		return cellHeight
 		}
 }
-
-//extension ImagesListViewController: UITableViewDelegate {
-//	func tableVIEW(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		
-//	}
-//}

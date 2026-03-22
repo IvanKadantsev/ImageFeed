@@ -8,11 +8,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="YSText-Regular.ttf">
-            <string>YSText-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--ImagesList-->
         <scene sceneID="tne-QT-ifu">
@@ -54,7 +49,7 @@
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-jT-a9l" userLabel="Date Label">
                                                     <rect key="frame" x="24" y="231" width="370" height="21"/>
-                                                    <fontDescription key="fontDescription" name="YSText-Regular" family="YS Text" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" name="YP White"/>
                                                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
@@ -162,14 +157,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" minimumZoomScale="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="r2W-7V-E1F">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="r2W-7V-E1F">
                                 <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="rRx-kx-W9T">
-                                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="rRx-kx-W9T">
+                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="1059"/>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rRx-kx-W9T" secondAttribute="bottom" id="OI4-bP-y9Z"/>
+                                    <constraint firstItem="rRx-kx-W9T" firstAttribute="leading" secondItem="r2W-7V-E1F" secondAttribute="leading" id="YND-bT-ELF"/>
+                                    <constraint firstItem="rRx-kx-W9T" firstAttribute="top" secondItem="r2W-7V-E1F" secondAttribute="top" id="bus-CK-Xdg"/>
+                                    <constraint firstAttribute="trailing" secondItem="rRx-kx-W9T" secondAttribute="trailing" id="gpr-aF-nr4"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="pDM-Wa-idT"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ixV-6M-GPL"/>
                                 <connections>

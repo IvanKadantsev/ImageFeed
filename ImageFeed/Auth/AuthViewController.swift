@@ -39,12 +39,12 @@ extension AuthViewController: WebViewViewControllerDelegate {
 	func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
 		print("🔑 Получен код авторизации: \(code)")
 		
-		let oauthService = OAuth2Service()
-		oauthService.fetchOAuthToken(code: code) { result in
+		let oauthService = OAuth2Service.shared
+		oauthService.fetchAuthToken(code: code) { result in
 			switch result {
 			case .success(let tokenResponse):
-				print("✅ Аутентификация успешна! Токен: \(tokenResponse.accessToken)")
-				self.handleSuccessfulAuthentication(token: tokenResponse.accessToken)
+				print("✅ Аутентификация успешна! Токен: \(tokenResponse)")
+				self.handleSuccessfulAuthentication(token: tokenResponse)
 			case .failure(let error):
 				self.handleAuthenticationError(error: error)
 			}

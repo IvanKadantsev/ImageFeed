@@ -20,19 +20,31 @@ extension URLSession {
 		}
 		
 		let task = dataTask(with: request, completionHandler: { data, response, error in
-			if let data = data, let response = response, let statusCode = (response as? HTTPURLResponse)?.statusCode {
-				if 200 ..< 300 ~= statusCode {
-					fulfillCompletionOnTheMainThread(.success(data)) // 3
-				} else {
-					fulfillCompletionOnTheMainThread(.failure(NetworkError.httpStatusCode(statusCode))) // 4
-				}
-			} else if let error = error {
-				fulfillCompletionOnTheMainThread(.failure(NetworkError.urlRequestError(error))) // 5
+			if let response = response as? HTTPURLResponse {
+				print("Status: \(response.statusCode)")
+			}
+
+			if let error = error {
+				print("❌ Ошибка запроса: \(error.localizedDescription)")
+				fulfillCompletionOnTheMainThread(.failure(NetworkError.urlRequestError(error)))
+				return
+			}
+
+			guard let data = data, let response = response, let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+				print("❌ Общая ошибка сессии URLSession")
+				fulfillCompletionOnTheMainThread(.failure(NetworkError.urlSessionError))
+				return
+			}
+
+			if 200 ..< 300 ~= statusCode {
+				print("✅ Успешный ответ (HTTP \(statusCode)): \(data.count) байт данных")
+				fulfillCompletionOnTheMainThread(.success(data))
 			} else {
-				fulfillCompletionOnTheMainThread(.failure(NetworkError.urlSessionError)) // 6
+				print("❌ HTTP ошибка: статус \(statusCode)")
+				fulfillCompletionOnTheMainThread(.failure(NetworkError.httpStatusCode(statusCode)))
 			}
 		})
-		
+
 		return task
 	}
 }

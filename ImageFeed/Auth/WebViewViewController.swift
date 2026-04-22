@@ -154,13 +154,15 @@ struct OAuthTokenResponseBody: Decodable {
 
 
 class OAuth2Service {
+	static let shared = OAuth2Service()
+	
 	private let tokenStorage: OAuth2TokenStorage
 	
-	init(tokenStorage: OAuth2TokenStorage = OAuth2TokenStorage()) {
+	private init(tokenStorage: OAuth2TokenStorage = OAuth2TokenStorage()) {
 		self.tokenStorage = tokenStorage
 	}
 	
-	func fetchOAuthToken(code: String, completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void) {
+	func fetchAuthToken(code: String, completion: @escaping (Result<String, Error>) -> Void) {
 		let webViewController = WebViewViewController()
 		
 		switch webViewController.makeAuthTokenRequest(code: code) {
@@ -184,7 +186,7 @@ class OAuth2Service {
 				self.tokenStorage.token = tokenResponse.accessToken
 				
 				print("✅ Токен успешно получен и сохранён: \(tokenResponse.accessToken)")
-				completion(.success(tokenResponse))
+				completion(.success(tokenResponse.accessToken))
 			} catch let decodingError {
 				let errorMessage = "❌ Ошибка декодирования JSON: \(decodingError.localizedDescription)"
 				print(errorMessage)

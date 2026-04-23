@@ -1,4 +1,4 @@
-import UIKit
+internal import UIKit
 
 final class AuthViewController: UIViewController {
 	let showWebViewSegueIdentifier = "ShowWebView"
@@ -7,7 +7,6 @@ final class AuthViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		configureBackButton()
 	}
 	
@@ -31,8 +30,6 @@ final class AuthViewController: UIViewController {
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain,	target: nil, action: nil)
 		navigationItem.backBarButtonItem?.tintColor = UIColor(named: "YP Black")
 	}
-	
-	
 }
 
 extension AuthViewController: WebViewViewControllerDelegate {

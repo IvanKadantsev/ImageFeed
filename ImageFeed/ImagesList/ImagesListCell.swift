@@ -1,4 +1,4 @@
-import UIKit
+internal import UIKit
 
 final class ImagesListCell: UITableViewCell {
 	

@@ -1,11 +1,11 @@
-import UIKit
+internal import UIKit
 
 protocol AuthViewControllerDelegate: AnyObject {
 	func didAuthenticate(_ vc: AuthViewController)
 }
 
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
 	
 	private let storage = OAuth2TokenStorage()
 	private let showAuthenticationScreenSegueIdentifier = "showAuth"
